@@ -1,15 +1,15 @@
 PODS:
   - CorePlot (2.2)
-  - Crashlytics (3.8.4):
+  - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.11)
+  - Fabric (1.6.13)
   - KBRoundedButton (1.0.4)
   - KVNProgress (2.3.1)
   - SmileTouchID (0.1.8)
 
 DEPENDENCIES:
   - CorePlot (= 2.2)
-  - Crashlytics (~> 3.8.3)
+  - Crashlytics (~> 3.8.4)
   - Fabric (~> 1.6.11)
   - KBRoundedButton (= 1.0.4)
   - KVNProgress (= 2.3.1)
@@ -17,12 +17,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   CorePlot: cbe0c6e14220705e32e06a89c7d6a5a908b7d7d8
-  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
   KBRoundedButton: 8fde755b8f1df3ddd3c3c280d9b27ce04ab55d00
   KVNProgress: 8167b1f19e2758290c0b6143020ed9dcbb0477a1
   SmileTouchID: 86c8429c7b481d793b8bad025255e3608f4894b0
 
-PODFILE CHECKSUM: 797c4bd475e0efe046c8daae07363078bab99bd9
+PODFILE CHECKSUM: c43580f29278d160b56cb86fa852fdf6e715403f
 
 COCOAPODS: 1.2.1

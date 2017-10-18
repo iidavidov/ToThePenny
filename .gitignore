@@ -17,9 +17,9 @@ profile
 DerivedData
 .idea/
 # Pods - for those of you who use CocoaPods
-Pods/
-Crashlytics.framework
-Fabric.framework
+#Pods/
+#Crashlytics.framework
+#Fabric.framework
 
-Pods/KVNProgress/KVNProgress/Classes/KVNProgress.h
-Pods/KVNProgress/KVNProgress/Classes/KVNProgress.m
+#Pods/KVNProgress/KVNProgress/Classes/KVNProgress.h
+#Pods/KVNProgress/KVNProgress/Classes/KVNProgress.m
