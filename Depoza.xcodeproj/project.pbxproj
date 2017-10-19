@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AB4FC821F97DB92002C1728 /* SomeDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4FC811F97DB92002C1728 /* SomeDateFormatter.swift */; };
 		42CE70EE0C99677BB045BD51 /* MotionEffectWithTiltAlongVerticalAndHorizontalAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CE7CC9DD3529E2200689E8 /* MotionEffectWithTiltAlongVerticalAndHorizontalAxis.m */; };
 		42CE7125290E4A6E35D9A576 /* HSDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CE7F8253FD8DB7876A8B95 /* HSDatePickerViewController.m */; };
 		42CE7196EFF22F8C6F227577 /* ManageCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CE76CDD55F14C0857FA0EF /* ManageCategoryTableViewController.m */; };
@@ -186,6 +187,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3AB4FC801F97DB91002C1728 /* Depoza-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Depoza-Bridging-Header.h"; sourceTree = "<group>"; };
+		3AB4FC811F97DB92002C1728 /* SomeDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeDateFormatter.swift; sourceTree = "<group>"; };
 		42CE70248EE8C83638F7BA2B /* DetailExpenseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailExpenseTableViewController.m; sourceTree = "<group>"; };
 		42CE70829254D0030A1882DC /* ManageCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageCategoryTableViewController.h; sourceTree = "<group>"; };
 		42CE7098ED9A5188E9011FE5 /* PieChartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieChartTableViewController.m; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 			children = (
 				5016F5C81BA98A2C007FF6B8 /* AppConfiguration.h */,
 				5016F5C91BA98A2C007FF6B8 /* AppConfiguration.m */,
+				3AB4FC811F97DB92002C1728 /* SomeDateFormatter.swift */,
+				3AB4FC801F97DB91002C1728 /* Depoza-Bridging-Header.h */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1128,6 +1133,7 @@
 					506E727F1A1E0B450006F2DF = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 6UNHY8UY6E;
+						LastSwiftMigration = 0900;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1355,6 +1361,7 @@
 				5014D9981AA056DC00B4CBFF /* NSDate+IsDateBetweenCurrentMonth.m in Sources */,
 				50AA42F81A87AC860019CB55 /* ExpenseData.m in Sources */,
 				50BF8D421AFB726C002387EF /* NSString+FormatDate.m in Sources */,
+				3AB4FC821F97DB92002C1728 /* SomeDateFormatter.swift in Sources */,
 				5064C6D61AC5491200979BF0 /* NSString+FormatAmount.m in Sources */,
 				50B3574D1A48596000168958 /* Persistence.m in Sources */,
 				508774871A1F0C19002D1A9E /* Expense.m in Sources */,
@@ -1616,6 +1623,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Depoza/Depoza.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1640,6 +1648,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "MagdaIvan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Depoza/Depoza-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1649,6 +1660,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Depoza/Depoza.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1673,12 +1685,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "MagdaIvan.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Depoza/Depoza-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		506E72AA1A1E0B450006F2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1699,6 +1714,7 @@
 		506E72AB1A1E0B450006F2DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
