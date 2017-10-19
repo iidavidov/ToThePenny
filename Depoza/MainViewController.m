@@ -193,8 +193,40 @@ NSString * const ContinuingActivityRepresentsSearchableExpenseNotification = @"C
             [_selectTimePeriodViewController dismissFromParentViewController];
             [self changeMonthToShowFromDate:[NSDate date]];
         }
-        [self performSegueWithIdentifier:@"AddExpense" sender:nil];
+        [self presentAddExpenseViewController];
     }
+}
+
+- (void)presentAddExpenseViewController {
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navigationController = (UINavigationController*)[main instantiateViewControllerWithIdentifier:@"AddExpenseNavigationControllerId"];
+    [self presentAddExpenseNavigationController:navigationController];
+}
+
+- (void)presentAddExpenseNavigationController:(UINavigationController *)navigationController {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self changeMonthToShowFromDate:[NSDate date]];
+    });
+
+    _isAddExpensePresenting = YES;
+
+    AddExpenseTableViewController *controller = (AddExpenseTableViewController *)navigationController.topViewController;
+    controller.delegate = self;
+    controller.managedObjectContext = _managedObjectContext;
+    controller.categoriesInfo = _categoriesInfo;
+
+    // create animator object with instance of modal view controller
+    // we need to keep it in property with strong reference so it will not get release
+    self.transitionAnimator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:navigationController];
+    self.transitionAnimator.transitionDuration = 0.7f;
+    self.transitionAnimator.bounces = NO;
+    self.transitionAnimator.behindViewAlpha = 0.5f;
+    self.transitionAnimator.behindViewScale = 0.7f;
+    self.transitionAnimator.direction = ZFModalTransitonDirectionRight;
+
+    // set transition delegate of modal view controller to our object
+    navigationController.transitioningDelegate = _transitionAnimator;
+    navigationController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 #pragma mark FetchCategoriesData
@@ -483,34 +515,7 @@ NSString * const ContinuingActivityRepresentsSearchableExpenseNotification = @"C
 #pragma mark - Segues -
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddExpense"]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self changeMonthToShowFromDate:[NSDate date]];
-        });
-
-        _isAddExpensePresenting = YES;
-
-        UINavigationController *navigationController = segue.destinationViewController;
-
-        AddExpenseTableViewController *controller = (AddExpenseTableViewController *)navigationController.topViewController;
-        controller.delegate = self;
-        controller.managedObjectContext = _managedObjectContext;
-        controller.categoriesInfo = _categoriesInfo;
-
-            // create animator object with instance of modal view controller
-            // we need to keep it in property with strong reference so it will not get release
-        self.transitionAnimator = [[ZFModalTransitionAnimator alloc] initWithModalViewController:navigationController];
-        self.transitionAnimator.transitionDuration = 0.7f;
-        self.transitionAnimator.bounces = NO;
-        self.transitionAnimator.behindViewAlpha = 0.5f;
-        self.transitionAnimator.behindViewScale = 0.7f;
-        self.transitionAnimator.direction = ZFModalTransitonDirectionRight;
-
-            // set transition delegate of modal view controller to our object
-        navigationController.transitioningDelegate = _transitionAnimator;
-        navigationController.modalPresentationStyle = UIModalPresentationCustom;
-
-    } else if ([segue.identifier isEqualToString:kDetailExpenseTableViewControllerSegueIdentifier]) {
+    if ([segue.identifier isEqualToString:kDetailExpenseTableViewControllerSegueIdentifier]) {
         DetailExpenseTableViewController *controller = segue.destinationViewController;
         controller.managedObjectContext = _managedObjectContext;
 
