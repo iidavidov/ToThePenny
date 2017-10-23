@@ -253,7 +253,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="JNE-qc-fiL" kind="modal" identifier="AddExpense" id="CCd-Tz-b70"/>
+                                    <action selector="didTapAddExpense:" destination="Eo6-E8-pxc" eventType="touchUpInside" id="7vt-wL-JpX"/>
                                 </connections>
                             </button>
                         </subviews>

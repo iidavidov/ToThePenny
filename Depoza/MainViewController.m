@@ -197,6 +197,10 @@ NSString * const ContinuingActivityRepresentsSearchableExpenseNotification = @"C
     }
 }
 
+- (IBAction)didTapAddExpense:(id)sender {
+    [self presentAddExpenseViewController];
+}
+
 - (void)presentAddExpenseViewController {
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationController = (UINavigationController*)[main instantiateViewControllerWithIdentifier:@"AddExpenseNavigationControllerId"];
@@ -227,6 +231,10 @@ NSString * const ContinuingActivityRepresentsSearchableExpenseNotification = @"C
     // set transition delegate of modal view controller to our object
     navigationController.transitioningDelegate = _transitionAnimator;
     navigationController.modalPresentationStyle = UIModalPresentationCustom;
+
+    [self presentViewController:navigationController
+                       animated:YES 
+                     completion:nil];
 }
 
 #pragma mark FetchCategoriesData

@@ -11,5 +11,10 @@ import UIKit
 import CoreImage
 
 class SomeDateFormatter {
-    
+    init() {
+        }
+
+    func doSomething() {
+
+    }
 }
